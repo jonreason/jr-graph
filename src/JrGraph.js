@@ -34,9 +34,7 @@ export class JrGraph extends HTMLElement {
 
 		var event = new CustomEvent('update');
 		self.point = point;
-		console.log(12)
 		canvas.addEventListener("mousemove", function(e) {
-			console.log(document.documentElement.scrollTop);
 			if (point.drag) {
 				point.xPixels = (e.clientX+document.documentElement.scrollLeft - canvas.offsetLeft) - canvas.width/2;
 				point.yPixels = ((e.clientY+document.documentElement.scrollTop) - canvas.height/2 - canvas.offsetTop)*-1;
