@@ -41,8 +41,9 @@ onMounted(function(){
 ###demo/index.html (example3):
 
 ```html
+
 <script type="module">
-    import '../jr-graph.js';
+	import 'jr-graph/my-component.js';
 </script>
 ```
 
