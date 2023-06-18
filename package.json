@@ -1,0 +1,35 @@
+{
+  "name": "jr-graph",
+  "version": "1.0.0",
+  "description": "Graph with a draggable point that can be used as a 2-axis controller",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./my-component.js": "./jr-graph.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonreason/jr-graph.git"
+  },
+  "keywords": [
+    "graph",
+    "controller",
+    "point",
+    "coordinate",
+    "system",
+    "math",
+    "axis",
+    "slider"
+  ],
+  "author": "Jon Reason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonreason/jr-graph/issues"
+  },
+  "homepage": "https://github.com/jonreason/jr-graph#readme"
+}
