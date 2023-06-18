@@ -1,7 +1,7 @@
 {
   "name": "jr-graph",
-  "version": "1.0.0",
-  "description": "Graph with a draggable point that can be used as a 2-axis controller",
+  "version": "1.0.1",
+  "description": "Web component that creates a graph with a draggable point that can be used as a 2-axis controller",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
