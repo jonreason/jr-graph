@@ -1,4 +1,4 @@
-export class JrGraph extends HTMLElement {
+class JrGraph extends HTMLElement {
 
 	constructor() {
 		super();
@@ -32,17 +32,9 @@ export class JrGraph extends HTMLElement {
 			point.drag = false;
 		});
 
-		canvas.addEventListener("touchstart", function(e) {
-			point.drag = true;
-		});
-		canvas.addEventListener("touchend", function(e) {
-			point.drag = false;
-		});
-
 		var event = new CustomEvent('update');
 		self.point = point;
-
-		let updatePointPosition = function(e){
+		canvas.addEventListener("mousemove", function(e) {
 			if (point.drag) {
 				point.xPixels = (e.clientX+document.documentElement.scrollLeft - canvas.offsetLeft) - canvas.width/2;
 				point.yPixels = ((e.clientY+document.documentElement.scrollTop) - canvas.height/2 - canvas.offsetTop)*-1;
@@ -51,10 +43,7 @@ export class JrGraph extends HTMLElement {
 				self.dispatchEvent(event);
 				draw();
 			}
-		}
-
-		canvas.addEventListener("mousemove", updatePointPosition);
-		canvas.addEventListener("touchmove", updatePointPosition);
+		});
 
 		function draw() {
 			ctx.clearRect(-canvas.width/2, -canvas.height/2, canvas.width, canvas.height);
@@ -87,4 +76,11 @@ export class JrGraph extends HTMLElement {
 	}
 
 }
+
+customElements.define('jr-graph', JrGraph);
+
+
+
+
+
 
