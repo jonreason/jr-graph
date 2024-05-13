@@ -42,12 +42,19 @@ export class JrGraph extends HTMLElement {
 		var event = new CustomEvent('update');
 		self.point = point;
 
-		let updatePointPosition = function(e){
+		let updatePointPosition = function(e) {
 			if (point.drag) {
-				point.xPixels = (e.clientX+document.documentElement.scrollLeft - canvas.offsetLeft) - canvas.width/2;
-				point.yPixels = ((e.clientY+document.documentElement.scrollTop) - canvas.height/2 - canvas.offsetTop)*-1;
-				point.x = point.xPixels / (canvas.width/2);
-				point.y = point.yPixels / (canvas.height/2);
+				if (e.touches) {
+					point.xPixels = (e.touches[0].clientX + document.documentElement.scrollLeft - canvas.offsetLeft) - canvas.width / 2;
+					point.yPixels = ((e.touches[0].clientY + document.documentElement.scrollTop) - canvas.height / 2 - canvas.offsetTop) * -1;
+
+				} else {
+					point.xPixels = (e.clientX + document.documentElement.scrollLeft - canvas.offsetLeft) - canvas.width / 2;
+					point.yPixels = ((e.clientY + document.documentElement.scrollTop) - canvas.height / 2 - canvas.offsetTop) * -1;
+				}
+
+				point.x = point.xPixels / (canvas.width / 2);
+				point.y = point.yPixels / (canvas.height / 2);
 				self.dispatchEvent(event);
 				draw();
 			}
