@@ -33,6 +33,7 @@ export class JrGraph extends HTMLElement {
 		});
 
 		canvas.addEventListener("touchstart", function(e) {
+			e.preventDefault();
 			point.drag = true;
 		});
 		canvas.addEventListener("touchend", function(e) {
